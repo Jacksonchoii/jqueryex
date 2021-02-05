@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h1>이벤트</h1>
+	<!-- ~할 때 ***작동해라-->
+	<!-- 마우스 클릭할 때  *** 작동해라 e.g) 마우스 드래그 할 때-->
+	<!-- 키보드 입력할 때 *** 작동해라 -->
+	
+	<h2>h2태그_1</h2>
+	<h2>h2태그_2</h2>
+	<h2>h2태그_3</h2>
+	
+	
+	<h3 class="tagh3">네이버</h3>
+	<h3 class="tagh3">다음</h3>
+	
+	
+	<div>
+		<button id="btn">자바스크립트 테스트 버튼</button>
+	</div>
+	
+	<P id="display">
+		
+	</P>
+	
+	<p id="display2">
+	
+	</p>
+	
+	<script type="text/javascript">
+		//문서가 로딩 되었을 때
+		window.onload = function(){
+			var testButton = document.getElementById("btn");
+			var textArea = document.getElementById("display");
+			console.log(testButton); //확인용
+			console.log(textArea); //확인용
+			
+			var textArea2 = document.getElementById("display2");
+			console.log(textArea2);
+			
+			//tag h2 
+			//[<h2>h2태그_1</h2>, <h2>h2태그_2</h2>, <h2>h2태그_3</h2>]
+			var tagArray = document.getElementsByTagName("h2");
+			console.log(tagArray);
+			
+			//class h3 (클래스 담기)
+			//[<h3 class="tagh3">h3태그_1</h3>, <h3 class="tagh3">h3태그_2</h3>]
+			var tagh3Array = document.getElementsByClassName("tagh3");
+			console.log(tagh3Array);
+			
+			
+			//기능은 정의되고 클릭이 되면 작동된다. 바뀌는 부분
+			testButton.onclick = function(){
+				console.log("버튼 클릭");
+				textArea.innerHTML="<font color='#ff0000'>홍길동<font>";
+			};
+			
+			//h2태그_1 클릭했을 때
+			tagArray[0].onclick = function(){//배열이니까 전체 클릭이 불가능 그러므로 몇 번째 방을 클릭할건지 정의해줘야함
+				console.log("h2태그_1"); //먼저 찍어서 확인해보고 작업하기	
+				textArea.innerHTML="<font color='#00ff00'>h2태그_1<font>";
+			};
+			
+			//h2태그_2 클릭했을 때
+			tagArray[1].onclick = function(){
+				console.log("h2태그_2");
+				textArea.innerHTML="<font color='#0000ff'>h2태그_2<font>";
+			};
+			
+			//h2태그_3 클릭했을 때
+			tagArray[2].onclick = function(){
+				console.log("h2태그_3");
+				textArea.innerHTML="<font color='#ff00ff'>h2태그_3<font>";
+			};
+			
+			//네이버 클릭했을 때
+			tagh3Array[0].onclick = function(){
+				console.log("네이버");
+				textArea2.innerHTML="<a href='http://www.naver.com' target='_blank'>네이버</a>";
+			};
+			
+			//다음 클릭했을 때
+			tagh3Array[1].onclick = function(){
+				console.log("다음");
+				textArea2.innerHTML="<a href='http://wwww.daum.net' target='_blank'>다음</a>"
+			}
+			
+		};
+		
+		
+	</script>
+	
+</body>
+</html>
